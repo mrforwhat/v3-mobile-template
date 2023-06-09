@@ -4,7 +4,7 @@
  </div>
 </template>
 <script setup lang="ts">
-const value = ref('')
+const value = ref('123')
 </script>
 <style lang="scss" scoped>
     .page{
