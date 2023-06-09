@@ -10,5 +10,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VarButton: typeof import('@varlet/ui')['_ButtonComponent']
+    VarInput: typeof import('@varlet/ui')['_InputComponent']
   }
 }

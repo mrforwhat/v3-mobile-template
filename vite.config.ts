@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import dayjs from "dayjs";
 import { resolve } from "path";
 import postcssPresetEnv from "postcss-preset-env";
-
+import px2vw from "postcss-px-to-viewport"
 import { createVitePlugins } from "./build/plugin";
 
 // https://vitejs.dev/config/
@@ -26,7 +26,23 @@ export default defineConfig(({ command, mode }) => {
     },
     css: {
       postcss: {
-        plugins: [postcssPresetEnv()],
+        plugins: [
+          postcssPresetEnv(),
+          px2vw({
+            viewportWidth: 375,
+            unitPrecision: 6,
+            unitToConvert: 'px',
+            propList: ['*'],
+            exclude: [/^(?!.*node_modules\/@varlet)/],
+          }),
+          px2vw({
+            viewportWidth: 750,
+            unitPrecision: 6,
+            unitToConvert: 'px',
+            propList: ['*'],
+            exclude: [/node_modules\/@varlet/],
+          })
+        ],
       },
     },
     plugins: createVitePlugins(env as ImportMetaEnv),
