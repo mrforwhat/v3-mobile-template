@@ -1,6 +1,6 @@
 <template>
  <div class="page" flex="main-cross:center">
-    <var-input placeholder="请输入文本" v-model="value" />
+    <div>{{ value }}</div>        
  </div>
 </template>
 <script setup lang="ts">
