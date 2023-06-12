@@ -1,17 +1,35 @@
 <template>
- <div class="page" flex="main-cross:center">
-    <div>{{ value }}</div>        
- </div>
+  <div class="page" flex="main-cross:center">
+    <div class="test">{{ value }}</div>
+    <var-button @click="test">测试</var-button>
+  </div>
 </template>
 <script setup lang="ts">
-const value = ref('123')
+import api from "@/utils/api";
+import { Snackbar } from "@varlet/ui";
+import "@varlet/ui/es/snackbar/style/index";
+const value = ref("123");
+onMounted(async () => {});
+const test = async () => {
+  const rs = await api.get("front/api/getActDetails/678858669", { id: 1 });
+  if (rs.status == 200) {
+    Snackbar("请求成功");
+    console.log(rs);
+  } else {
+    console.log(rs);
+  }
+};
 </script>
 <style lang="scss" scoped>
-    .page{
-        width: 100%;
-        height: 100vh;
-    }
-    p{
-        font-size: 24px;
-    }
+.page {
+  width: 100%;
+  height: 100vh;
+}
+p {
+  font-size: 24px;
+}
+.test {
+  display: flex;
+  font-size: 30px;
+}
 </style>
