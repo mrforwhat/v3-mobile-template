@@ -1,6 +1,5 @@
 <template>
   <div class="page" flex="main-cross:center">
-    <div class="test">{{ value }}</div>
     <var-button @click="test">测试</var-button>
   </div>
 </template>
@@ -23,7 +22,7 @@ const test = async () => {
 <style lang="scss" scoped>
 .page {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 p {
   font-size: 24px;
